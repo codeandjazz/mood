@@ -12,8 +12,7 @@ export default clerkMiddleware((auth, req) => {
 
 export const config = {
   matcher: [
-    '/((?!.+\\.[\\w]+$|_next).*)', // All routes except static assets and internal Next.js files
-    '/(api|trpc)(.*)', // All API and TRPC routes
-    '/(?!^/$)', // Excludes the home page
+    '/((?!.+\\.[\\w]+$|_next|^$).*)', // All routes except static assets, internal Next.js files, and home page
+    '/(api|trpc)(.*)', // Apply to API and TRPC routes
   ],
 }
