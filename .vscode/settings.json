@@ -72,8 +72,17 @@
     "editor.formatOnType": true
   },
   "files.associations": {
-    "*.tsx": "typescriptreact"
+    "*.tsx": "typescriptreact",
+    "*.css": "tailwindcss"
   },
   "explorer.confirmDragAndDrop": false,
-  "window.zoomLevel": 0
+  "window.zoomLevel": 0,
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "javascript": "javascript",
+    "css": "css"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  }
 }
