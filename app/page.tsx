@@ -1,10 +1,8 @@
-import { auth } from '@clerk/nextjs/dist/types/server'
-import Image from 'next/image'
+import { auth } from '@clerk/nextjs/server'
 import Link from 'next/link'
 
-
-export default async function Home() {
-  const {userId} = await auth()
+const Home = async () => {
+  const { userId } = await auth()
   let href = userId ? '/journal' : '/new-user'
   return (
     <div className="w-screen h-screen bg-black flex justify-center items-center text-white">
@@ -25,3 +23,5 @@ export default async function Home() {
     </div>
   )
 }
+
+export default Home
