@@ -1,5 +1,6 @@
 import prismaConnection from "@/utils/db";
 import { auth, currentUser } from "@clerk/nextjs/dist/types/server";
+import { redirect } from "next/navigation";
 
 const createNewUser = async () => {
   const user = await currentUser()
@@ -12,17 +13,17 @@ const createNewUser = async () => {
   if (!match) {
     await prismaConnection.user.create({
       data: {
-        clerkId : user.id,
-        email: user.email
-      }
+        clerkId: user.id,
+        email: user?.emailAddresses[0].emailAddress,
+      },
     })
   }
+  redirect('/journal')
 }
 
-const NewUser = () => {
-  return <div>
-    hi
-  </div>
+const NewUser = async () => {
+  await createNewUser()
+  return <div>...loading</div>
 }
 
-export default NewUser;
+export default NewUser
