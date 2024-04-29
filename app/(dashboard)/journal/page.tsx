@@ -1,5 +1,6 @@
 import EntryCard from "@/components/EntryCard"
 import NewEntryCard from "@/components/NewEntryCard"
+import { analyze } from "@/utils/ai"
 import { getUserByClerkId } from "@/utils/auth"
 import prismaConnection from "@/utils/db"
 import Link from "next/link"
@@ -14,7 +15,12 @@ const getEntries = async () => {
       createdAt: 'desc',
     },
   })
+  
+  await analyze('give me an inspirational quote')
+  
   return entries
+  
+  
 }
 
 const JournalPage = async () => {
