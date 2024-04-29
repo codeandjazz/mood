@@ -12,7 +12,7 @@ export const POST = async () => {
     },
   })
 
-  revalidatePath
+  revalidatePath('/journal')
 
   return NextResponse.json({data: entry})
   }
