@@ -1,5 +1,5 @@
 import prismaConnection from "@/utils/db";
-import { auth, currentUser } from "@clerk/nextjs/dist/types/server";
+import { auth, currentUser } from '@clerk/nextjs/server'
 import { redirect } from "next/navigation";
 
 const createNewUser = async () => {
