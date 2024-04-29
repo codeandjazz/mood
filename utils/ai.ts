@@ -1,6 +1,7 @@
 import { OpenAI } from '@langchain/openai'
 import { StructuredOutputParser } from 'langchain/output_parsers'
 import z from 'zod'
+import { PromptTemplate } from '@langchain/core/prompts'
 
 const parser = StructuredOutputParser.fromZodSchema(
   z.object({
@@ -15,7 +16,7 @@ const parser = StructuredOutputParser.fromZodSchema(
       ),
     summary: z
       .string()
-      .describe('a quick summary of the entire journal entry.'),
+      .describe('quick summary of the entire journal entry.'),
     color: z
       .string()
       .describe(
@@ -29,13 +30,31 @@ const parser = StructuredOutputParser.fromZodSchema(
   })
 )
 
+const getPrompt = async (content) => {
+  const format_instructions = parser.getFormatInstructions()
 
-export const analyze = async (prompt) => {
+  const prompt = new PromptTemplate({
+    template:
+      'Analyze the following journal entry. Follow the instructions and format your response to match the format instructions, no matter what! \n{format_instructions}\n{entry}',
+    inputVariables: ['entry'],
+    partialVariables: { format_instructions },
+  })
+
+  const input = await prompt.format({
+    entry: content
+  })
+
+  return input
+
+}
+
+export const analyze = async (content) => {
+  const input = await getPrompt(content)
   const model = new OpenAI({ temperature: 0, modelName: 'gpt-3.5-turbo'}) 
   // temperature controls the window of what is likely to be selected next
   // can also be described as the silliness level
   // the closer to 0, the more factual
   // the closer to 1, the sillier and it might hallucinate
-  const result = await model.invoke(prompt)
+  const result = await model.invoke(input)
   console.log(result)
 }
