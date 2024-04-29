@@ -1,8 +1,13 @@
-'use client' /* turns it into a React components as opposed to a React server component */
+'use client'
+import { createNewEntry } from "@/utils/api"
+import { useRouter } from "next/navigation"
 
 const NewEntryCard = () => {
-  const handleOnClick = () => {
+  const router = useRouter()
 
+  const handleOnClick = async () => {
+    const data = await createNewEntry()
+    router.push(`/journal/${data.id}`)
   }
   return (
     <div
