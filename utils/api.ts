@@ -10,6 +10,9 @@ export const createNewEntry = async () => {
     const data = await res.json()
     return data.data
   }
+
+  // ..when error
+  return console.error();
 }
 
 // update entry
@@ -25,4 +28,7 @@ export const updateEntry = async (id, content) => {
     const data = await res.json()
     return data.data
   }
+
+  // ..when error
+  return console.error()
 }
