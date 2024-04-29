@@ -27,7 +27,7 @@ return (
     <div className="col-span-2">
       <Editor entry={entry} />
     </div>
-    <div>ai stuff</div>
+    <div className="border-l border-black/10">ai stuff</div>
   </div>
 )
 }
