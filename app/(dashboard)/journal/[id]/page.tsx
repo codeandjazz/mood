@@ -17,12 +17,16 @@ const getEntry = async (id) => {
       }
     }
   })
+  return entry
 }
 
-const EntryPage = ({params}) => {
-return <div>
-  <Editor />
-</div>
+const EntryPage = async ({params}) => {
+  const entry = await getEntry(params.id)
+return (
+  <div className="w-full h-full">
+    <Editor entry={entry} />
+  </div>
+)
 }
 
 export default EntryPage
