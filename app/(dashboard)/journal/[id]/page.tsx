@@ -26,7 +26,7 @@ const EntryPage = async ({ params }) => {
     { name: 'Summary', value: '' },
     { name: 'Subject', value: '' },
     { name: 'Mood', value: '' },
-    { name: 'Negative', value: '' },
+    { name: 'Negative', value: 'False' },
   ]
 return (
   <div className="w-full h-full grid grid-cols-3">
