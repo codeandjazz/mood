@@ -40,8 +40,11 @@ return (
       <div>
         <ul>
           {analysisData.map((item) => (
-            <li className="flex items-center justify-between" key={item.name}>
-              <span>{item.name}</span>
+            <li
+              className="px-2 py-4 flex items-center justify-between border-b border-t border-black/10"
+              key={item.name}
+            >
+              <span className="text-lg font-semibold">{item.name}</span>
               <span>{item.value}</span>
             </li>
           ))}
