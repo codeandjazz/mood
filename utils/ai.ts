@@ -54,5 +54,10 @@ export const analyze = async (content) => {
   // the closer to 0, the more factual
   // the closer to 1, the sillier and it might hallucinate
   const result = await model.invoke(input)
-  console.log(result)
+
+  try {
+    return parser.parse(result) // get back the result in JSON
+  } catch (e) {
+    console.log(e) // ...log the error if it fails
+  }
 }
