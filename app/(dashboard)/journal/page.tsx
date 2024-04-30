@@ -16,7 +16,7 @@ const getEntries = async () => {
     },
   })
   
-  await analyze(`Today has been very productive. I applied for two junior dev positions and one dev apprenticeship. My back hurts from sitting in front of my computer for so long.`)
+  await analyze(`I woke up at nine in the morning. I had an important phone call, made plans for the weekend and started planning my birthday. I had a delicious lunch, chicken and salad, and then I got lost in looking at second-hand fashion on my phone. Now I'm doing the laundry and coding in between of the machines. I don't have any plans tonight.`)
   
   return entries
   
