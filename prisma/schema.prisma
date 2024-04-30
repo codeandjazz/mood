@@ -34,7 +34,7 @@ model JournalEntry {
 
   content String @db.Text
 
-  analysis Analysis?
+  analysis Analysis? // ? means optional
   
   // compound index
   @@unique([userId, id])
@@ -46,7 +46,7 @@ model Analysis {
   updatedAt DateTime @updatedAt
 
   entryId String
-  entry   JournalEntry @relation(fields: [entryId], references: [id])
+  entry   JournalEntry @relation(fields: [entryId], references: [id], onDelete: Cascade) // whenever the journal entry gets deleted, delete the analysis too
 
   mood     String
   summary  String  @db.Text
