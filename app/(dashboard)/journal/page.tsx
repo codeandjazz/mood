@@ -16,9 +16,6 @@ const getEntries = async () => {
     },
   })
   
-  console.log(
-  await analyze(`I woke up at nine in the morning. I had an important phone call, made plans for the weekend and started planning my birthday. I had a delicious lunch, chicken and salad, and then I got lost in looking at second-hand fashion on my phone. Now I'm doing the laundry and coding in between of the machines. I don't have any plans tonight.`))
-  
   return entries
   
   
