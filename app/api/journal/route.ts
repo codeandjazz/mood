@@ -15,7 +15,10 @@ export const POST = async () => {
 
   const analysis = await analyze(entry.content)
   await prismaConnection.analysis.create({
-    
+    data: {
+      entryId: entry.id,
+      ...analysis, // since all of the properties have the same names and the same types in both the zod schema and the prisma schema
+    }
   }) 
 
   revalidatePath('/journal')
