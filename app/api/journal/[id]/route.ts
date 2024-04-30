@@ -1,3 +1,4 @@
+import { analyze } from "@/utils/ai"
 import { getUserByClerkId } from "@/utils/auth"
 import prismaConnection from "@/utils/db"
 import { NextResponse } from "next/server"
@@ -16,5 +17,15 @@ export const PATCH = async (request, { params }) => {
       content,
     },
   })
+
+  await prismaConnection.analysis.update({
+    where: {
+      entryId: updatedEntry.id,
+    },
+    data: {
+      ...(await analyze(updatedEntry.content)),
+    }
+  })
+
   return NextResponse.json({data: updatedEntry})
 }
