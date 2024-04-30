@@ -13,20 +13,26 @@ const getEntry = async (id) => {
       // each of those
       userId_id: {
         userId: user.id,
-        id
-      }
-    }
+        id,
+      },
+    },
+    include: {
+      analysis: true,
+    },
   })
   return entry
 }
 
 const EntryPage = async ({ params }) => {
   const entry = await getEntry(params.id)
+  const { mood, subject, summary, negative, color, sentimentScore } = entry.analysis
   const analysisData = [
-    { name: 'Summary', value: '' },
-    { name: 'Subject', value: '' },
-    { name: 'Mood', value: '' },
-    { name: 'Negative', value: 'False' },
+    { name: 'Summary', value: summary },
+    { name: 'Subject', value: subject },
+    { name: 'Mood', value: mood },
+    { name: 'Negative', value: negative },
+    { name: 'Color', value: color },
+    { name: 'Sentiment Score', value: sentimentScore },
   ]
 return (
   <div className="w-full h-full grid grid-cols-3">
