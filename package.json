@@ -35,8 +35,13 @@
     "zod": "^3.23.4"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/react": "^15.0.6",
     "@types/ws": "^8.5.10",
+    "@vitejs/plugin-react-swc": "^3.6.0",
     "bufferutil": "^4.0.8",
-    "prisma": "^5.13.0"
+    "jsdom": "^24.0.0",
+    "prisma": "^5.13.0",
+    "vitest": "^1.6.0"
   }
 }
