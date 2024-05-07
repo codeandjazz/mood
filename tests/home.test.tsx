@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { vi } from 'vitest'
-import Home from '@/app/page'
+import Home from '../app/page'
 
 vi.mock('@clerk/nextjs', () => {
   return {
@@ -18,5 +18,5 @@ vi.mock('@clerk/nextjs', () => {
 
 test('Home', async () => {
   render(await Home())
-  expect(screen.getByText('tracking your mood')).toBeTruthy()
+  expect(screen.getByText('The best Journal app, period.')).toBeTruthy()
 })

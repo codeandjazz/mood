@@ -10,7 +10,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@clerk/nextjs": "^5.0.2",
+    "@clerk/nextjs": "^5.0.6",
     "@langchain/openai": "^0.0.28",
     "@neondatabase/serverless": "^0.9.1",
     "@prisma/adapter-neon": "^5.13.0",
