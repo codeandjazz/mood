@@ -7,11 +7,11 @@ const DashboardLayout = ({ children }) => {
       <aside className="invisible h-0 lg:visible lg:absolute lg:w-[200px] lg:top-0 lg:left-0 lg:h-full lg:border-r lg:border-black/10">
         <div>Mood</div>
         <ul>
-          <li key='/' className="lg:px-2 lg:py-6 lg:text-xl">
-            <Link href='/'>Home</Link>
+          <li className="invisible lg:visible lg:px-2 lg:py-6 lg:text-xl">
+            <Link href="/">Home</Link>
           </li>
-          <li key='/journal' className="lg:px-2 lg:py-6 lg:text-xl">
-            <Link href='/journal'>Journal</Link>
+          <li className="invisible lg:visible lg:px-2 lg:py-6 lg:text-xl">
+            <Link href="/journal">Journal</Link>
           </li>
         </ul>
       </aside>
