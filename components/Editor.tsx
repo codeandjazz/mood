@@ -29,8 +29,8 @@ const Editor = ({ entry }) => {
     }
   })
   return (
-    <div className="w-full h-full grid grid-cols-3">
-      <div className="col-span-2">
+    <div className="w-full h-full grid grid-cols-1 md:grid-cols-3">
+      <div className="md:col-span-2">
         {isLoading && <div>...loading</div>}
         <textarea
           className="w-full h-full p-8 text-xl outline-none"
