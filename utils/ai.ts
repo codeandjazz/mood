@@ -61,3 +61,7 @@ export const analyze = async (content) => {
     console.log(e) // ...log the error if it fails
   }
 }
+
+const qa = async () => {
+  
+}
